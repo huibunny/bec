@@ -1,0 +1,26 @@
+{
+  "name": "bec",
+  "version": "1.0.0",
+  "description": "bec stands for bunny electron client, which can be used for a solution of desktop when you have a web app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huibunny/bec.git"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "huibunny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huibunny/bec/issues"
+  },
+  "homepage": "https://github.com/huibunny/bec#readme",
+  "devDependencies": {
+    "electron": "^19.0.6"
+  }
+}
