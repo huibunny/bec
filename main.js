@@ -4,10 +4,10 @@ const loadIniFile = require('read-ini-file')
 const path = require('path')
 const { protocol } = require('electron')
 
-const configFile = path.join(__dirname, 'bec.ini')
+const configFile = path.join(process.cwd(), '/conf/bec.ini')
 const config = loadIniFile.sync(configFile)
-const url = config.bec.url
-console.log('version: ' + config.bec.version)
+const url = config.app.url
+console.log('version: ' + config.app.version)
 console.log('url: ' + url)
 
 protocol.registerSchemesAsPrivileged([
@@ -47,7 +47,7 @@ const createWindow = () => {
     frame: false,
     resizable: false,
     // width: 1000,
-    icon: path.join(__dirname, '/bec.ico'),
+    icon: path.join(__dirname, '/logo.ico'),
     webPreferences: {
       // solve: electron require is not defined
       nodeIntegration: true
