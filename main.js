@@ -1,7 +1,14 @@
 'use strict'
 const { app, BrowserWindow } = require('electron')
+const loadIniFile = require('read-ini-file')
 const path = require('path')
 const { protocol } = require('electron')
+
+const configFile = path.join(__dirname, 'bec.ini')
+const config = loadIniFile.sync(configFile)
+const url = config.bec.url
+console.log('version: ' + config.bec.version)
+console.log('url: ' + url)
 
 protocol.registerSchemesAsPrivileged([
   {
@@ -28,7 +35,7 @@ let mainWindow
 // const winURL = process.env.NODE_ENV === 'development'
 //   ? `https://mp.weixin.qq.com/s?__biz=MzA4MDg1MjgxNw==&amp;mid=2247484207&amp;idx=1&amp;sn=175d386840699a8e02029619128f7269&amp;chksm=9f9ca111a8eb2807637ec33bc72e7c231b314eb4a20a73937dc473768e385655d2b294b2ec3c&token=612950746&lang=zh_CN#rd`
 //   : `file://${__dirname}/index.html`
-const winURL = `https://mp.weixin.qq.com/s?__biz=MzA4MDg1MjgxNw==&amp;mid=2247484207&amp;idx=1&amp;sn=175d386840699a8e02029619128f7269&amp;chksm=9f9ca111a8eb2807637ec33bc72e7c231b314eb4a20a73937dc473768e385655d2b294b2ec3c&token=612950746&lang=zh_CN#rd`
+const winURL = url
 
 const createWindow = () => {
     /**
@@ -40,7 +47,7 @@ const createWindow = () => {
     frame: false,
     resizable: false,
     // width: 1000,
-    icon: path.join(__dirname, '/erb.ico'),
+    icon: path.join(__dirname, '/bec.ico'),
     webPreferences: {
       // solve: electron require is not defined
       nodeIntegration: true

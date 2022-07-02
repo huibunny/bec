@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/huibunny/bec#readme",
   "devDependencies": {
-    "electron": "^19.0.6"
+  },
+  "dependencies": {
+    "electron": "^19.0.6",
+    "read-ini-file": "^3.0.1"
   }
 }
